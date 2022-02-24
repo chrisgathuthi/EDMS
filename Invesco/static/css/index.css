@@ -1,0 +1,68 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+p{
+    border-left: 2px solid #23cdeb;
+    text-align: left;
+    font-size: large;
+    margin-left: 3px;
+    padding: 4px;
+    text-transform: capitalize;
+    letter-spacing: 3px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body{
+    display: block;
+}
+button{
+    margin-left: 500px;
+    margin-top: 4px;
+}
+tbody tr:hover{
+    outline: #23cdeb solid 2px;
+
+}
+#id{
+    margin-left: 50px;
+    color: red;
+}
+thead{
+    background-color: #2858a6;
+    color: white;
+}
+.wrapper{
+    height: 40px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+}
+nav{
+    display: flex;
+    position: relative;
+    right: -1070px;
+    margin-right: 50px;
+
+    
+}
+.wrapper nav ul{
+    display: flex;
+    margin-left: 4px;
+    padding: 2px;
+}
+.wrapper nav ul li{
+    list-style: none;
+}
+.wrapper nav ul li a{
+    text-decoration: none;
+    font-size: larger;
+    color: white;
+    margin-left: 4px;
+    padding: 2px;
+
+}
+.wrapper nav ul li a:hover{
+    color: #e61e4c;
+}
