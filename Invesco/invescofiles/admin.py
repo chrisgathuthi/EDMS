@@ -1,9 +1,10 @@
-from email.contentmanager import raw_data_manager
+
 from django.contrib import admin
 from .models import *
 from .forms import *
 from invescofiles.models import *
 from import_export import resources
+from import_export.admin import ImportExportModelAdmin
 
 #{ClaimRecordsFiles, ClaimsDataInsuredRecords,ClaimPlaintiffRecords,
 #Summon,StaturoryNotice,Judgment,Warrants,Ira,OutOfCourt}
@@ -68,10 +69,10 @@ admin.site.register(OutOfCourt,OutOfCourtAdmin)
 #class ClaimPlaintiffRecordsInline(admin.StackedInline):
  #   model=ClaimPlaintiffRecords
   #  extra = 0
-class ClaimsDataInsuredRecordsAdmin(admin.ModelAdmin):     
+class ClaimsDataInsuredRecordsAdmin(ImportExportModelAdmin):     
     list_filter = ('date_received',) 
-    list_display = ['claim_no','policy_no','insured','plate_no','details_loss','date_received','last_modified']
-    search_fields = ['claim_no','policy_no','insured','plate_no']
+    list_display = ['claim_no','insured','plate_no','details_loss','date_received']
+    search_fields = ['claim_no','insured','plate_no']
 admin.site.register(ClaimsDataInsuredRecords,ClaimsDataInsuredRecordsAdmin)
 
 """
@@ -80,7 +81,7 @@ admin.site.register(ClaimsDataInsuredRecords,ClaimsDataInsuredRecordsAdmin)
 class ClaimRecordsFilesAdmin(admin.ModelAdmin):
     raw_id_fields=["claim_no"]
     form = ClaimsRecordFilesAdminForms
-    list_display = ['claim_no','file','title','description','date_of_submission','last_modified']
+    list_display = ['claim_no','file','date_of_submission','last_modified']
     search_fields = ['claim_no__claim_no','title']
 admin.site.register(ClaimRecordsFiles,ClaimRecordsFilesAdmin)
 

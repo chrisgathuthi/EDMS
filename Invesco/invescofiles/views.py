@@ -43,9 +43,11 @@ def index(request):
     allclaims = ClaimsDataInsuredRecords.objects.all()
     myFilters=ClaimsDataInsuredRecordsFilter(request.GET, queryset=allclaims)
     allclaims=myFilters.qs
-    paginator = Paginator(allclaims, 25) # Show 25 contacts per page.
+
+    b=ClaimsDataInsuredRecords.objects.all()
+    paginator = Paginator(b, 25) # Show 25 contacts per page.
     page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    page_obj = paginator.get_page(page_number) 
     return render(request,"index.html",{"allclaims":allclaims,"myFilters":myFilters,"page_obj":page_obj})
 
 @login_required

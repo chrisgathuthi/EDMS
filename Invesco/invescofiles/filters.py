@@ -12,7 +12,7 @@ import django_filters
 class ClaimsDataInsuredRecordsFilter(django_filters.FilterSet):
     class Meta:
         model=ClaimsDataInsuredRecords
-        exclude =("investigation","date_of_submission","date_received")
+        exclude =("date_received",)
 
 
 #summons filter class        

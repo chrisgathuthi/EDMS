@@ -6,13 +6,12 @@ from django.urls import reverse
 # Create your models here.
 class ClaimsDataInsuredRecords(models.Model):
     claim_no = models.CharField(verbose_name="claim number",max_length=25,unique=True,null=False,blank=False)
-    policy_no = models.CharField(verbose_name="policy number",max_length=25,unique=True,null=True,blank=True)
     insured = models.CharField(verbose_name="insured",max_length=100,help_text="Name of the insured",null=True,blank=True)
     plate_no = models.CharField(verbose_name="no plate",max_length=8,help_text="motor vehicle registration",null=True,blank=True)
     details_loss = models.TextField(verbose_name="details of loss",max_length=200,help_text="Details of loss",null=True,blank=True)
     date_loss = models.DateField(verbose_name="date of loss",help_text="Date of the loss",null=True,blank=True)
-    date_received = models.DateField(verbose_name="date received",help_text="date received ",null=True,blank=True,auto_created=True,auto_now=True)
-    last_modified = models.DateTimeField(verbose_name="Last modified",auto_now=True,help_text="This is the date of last modification",null=True,blank=True)
+    date_received = models.DateField(verbose_name="date received",help_text="date received ",null=True,blank=True)
+    
     
     
     def get_absolute_url(self):
@@ -23,7 +22,7 @@ class ClaimsDataInsuredRecords(models.Model):
 
     class Meta:
         ordering = ["-claim_no"]
-        verbose_name = "CLIENT RECORDS"
+        verbose_name = "INSURED RECORD"
     
 class Summon(models.Model):
     CLAIM=[
@@ -50,7 +49,7 @@ class Summon(models.Model):
     
 
     class Meta:
-        verbose_name = "SUMMON RECORDS"
+        verbose_name = "SUMMON RECORD"
         ordering = ["-claim_no"]
 
 class StatutoryNotice(models.Model):
@@ -69,7 +68,7 @@ class StatutoryNotice(models.Model):
         return f"{self.policy_no}"
 
     class Meta:
-        verbose_name = "STATUTORY NOTICE RECORDS"
+        verbose_name = "STATUTORY NOTICE RECORD"
         ordering = ["-date_received"]
 
 class Hearing(models.Model):
@@ -93,7 +92,7 @@ class Hearing(models.Model):
         return f"{self.claim_no}"
 
     class Meta:
-        verbose_name = "HEARING RECORDS"
+        verbose_name = "HEARING RECORD"
         ordering = ["-date_received"]
         
 class Judgement(models.Model):
@@ -114,7 +113,7 @@ class Judgement(models.Model):
         return f"{self.claim_no}    |   {self.date_received}"
 
     class Meta:
-        verbose_name = "JUDGMENT RECORDS"
+        verbose_name = "JUDGMENT RECORD"
         ordering = ["-date_received"]
 
 class Warrants(models.Model):
@@ -142,7 +141,7 @@ class Warrants(models.Model):
         super(Warrants, self).save(*args, **kwargs) # Call the real save() method
 
     class Meta:
-        verbose_name = "WARRANT RECORDS"
+        verbose_name = "WARRANT RECORD"
         ordering = ["-date_received"]
 
 
@@ -178,16 +177,12 @@ class OutOfCourt(models.Model):
         return f"{self.claim_no} "
     
     class Meta:
-        verbose_name = "OUT OF COURT RECORDS"
+        verbose_name = "OUT OF COURT RECORD"
         ordering = ["-claim_no"]
 
 class ClaimRecordsFiles(models.Model):
-    
-
     claim_no= models.ForeignKey(ClaimsDataInsuredRecords,verbose_name="claim number",on_delete=models.CASCADE)
-    title= models.CharField(verbose_name="File Name",max_length=15,blank=True,null=True)
     file= models.FileField(verbose_name="file",upload_to="File",help_text="Upload documents",null=False,blank=True,validators=[FileExtensionValidator( ['pdf'] )])
-    description = models.TextField(verbose_name="Description of the file",max_length=250,null=False,blank=True)
     date_of_submission = models.DateTimeField(verbose_name="Date of creation",auto_now_add=True,help_text="this is date of sumbmission don't fill, auto.",null=True,blank=True)
     last_modified = models.DateTimeField(verbose_name="Last modified",auto_now=True,help_text="This is the date of last modification",null=True,blank=True)
 
@@ -199,7 +194,7 @@ class ClaimRecordsFiles(models.Model):
         return f"{self.claim_no}"
     
     class Meta:
-        verbose_name = "SCANNED FILES"
+        verbose_name = "SCANNED FILE"
         ordering = ["-claim_no"]
 
 #shift+alt+A

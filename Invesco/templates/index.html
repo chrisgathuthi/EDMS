@@ -60,10 +60,6 @@
               {% render_field myFilters.form.claim_no class="form-control" %}
             </div>
             <div class="form-group col-sm-4 col-md-3" id="well">
-              {{ myFilters.form.policy_no.label_tag }}
-              {% render_field myFilters.form.policy_no class="form-control" %}
-            </div>
-            <div class="form-group col-sm-4 col-md-3" id="well">
               {{ myFilters.form.insured.label_tag }}
               {% render_field myFilters.form.insured class="form-control" %}
             </div>
@@ -90,13 +86,11 @@
             <tr>
               <th scope="col"></th>
               <th scope="col">Claim No:</th>
-              <th scope="col">Policy No:</th>
               <th scope="col">Insured</th>
               <th scope="col">Plate No:</th>
               <th scope="col">Details of Loss</th>
               <th scope="col">Date of Loss</th>
               <th scope="col">Date of submssion</th>
-              <th scope="col">Last modified</th>
             </tr>
           </thead>
           <tbody>
@@ -104,18 +98,17 @@
             <tr  data-href="{% url 'invescofiles:dashboard' claims.id %}">
               <th scope="row">{{ forloop.counter }}</th>
               <td>{{claims.claim_no}}</td>
-              <td>{{claims.policy_no}}</td>
               <td>{{claims.insured}}</td>
               <td>{{claims.plate_no}}</td>
               <td>{{claims.details_loss}}</td>
-              <td>{{claims.date_loss}}</td>
+              <td>{{claims.date_loss|date:"d M Y"}}</td>
               <td>{{claims.date_received}}</td>
-              <td>{{claims.last_modified}}</td>
             </tr>
             {% endfor %}
         </tbody>    
     </table>
   </section>
+  {% comment  %}
   <section  class="pagination">
   <nav aria-label="...">
     <ul class="pagination">
@@ -139,15 +132,13 @@
       {% endif %}
     </ul>
   </nav>
-
   </section>
+  {% endcomment %}
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <script>
 
     let id = '{{claims.claim_no}}'
-    var user = '{{request.user}}'
-    const url ='/submit-id/'
-
+    
     jQuery(document).ready(function($) {
     $('*[data-href]').on('click', function() {
       window.location = $(this).data("href");   

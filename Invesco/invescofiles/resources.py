@@ -1,3 +1,4 @@
+from dataclasses import fields
 from pyexpat import model
 from import_export import resources
 from .models import *
@@ -6,5 +7,10 @@ from .models import *
 class ClaimResource(resources.ModelResource):
     class Meta:
         model=ClaimsDataInsuredRecords
-        fields = ("claim_no","insured","plate_no","details_loss","date_loss")
+        exclude = ("date_loss","date_received")
+        widgets={
+            "date_loss":{"format":"%d/%m/%Y"},
+            "date_received":{"format":"%d/%m/%Y"},
+            "last_modified":{"format":"%d/%m/%Y"},
+        }
 
