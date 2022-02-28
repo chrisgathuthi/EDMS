@@ -20,6 +20,9 @@ urlpatterns=[
    path("library/",views.libraryview,name="library"),
 
 
+   path("test/",views.claimsfileapi,name="test"),
+
+
    #statutory
    path("statutory-forms/",views.statutory_form_view,name="statutory-forms"),#create statutory
    path("statutory-list/",views.statutory_list_view,name="statutory-list"),#list all statutoy 

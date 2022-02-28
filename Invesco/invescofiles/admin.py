@@ -70,7 +70,7 @@ admin.site.register(OutOfCourt,OutOfCourtAdmin)
  #   model=ClaimPlaintiffRecords
   #  extra = 0
 class ClaimsDataInsuredRecordsAdmin(ImportExportModelAdmin):     
-    list_filter = ('date_received',) 
+    #list_filter = ('date_received',) 
     list_display = ['claim_no','insured','plate_no','details_loss','date_received']
     search_fields = ['claim_no','insured','plate_no']
 admin.site.register(ClaimsDataInsuredRecords,ClaimsDataInsuredRecordsAdmin)

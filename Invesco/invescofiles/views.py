@@ -1,9 +1,9 @@
-
+from .resources import ClaimResource
 import json
 from django.core.files.base import File
-from django.http import request
-from django.shortcuts import get_list_or_404, render,redirect,get_object_or_404
-from django.contrib.auth import authenticate,login,logout
+from django.http import HttpResponse
+from django.shortcuts import  render,redirect,get_object_or_404
+from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -15,6 +15,7 @@ from .forms import *
 from django.core.paginator import Paginator
 from django.views.generic.detail import DetailView
 from django.views.generic import *
+from django.core import serializers
 
 # Create your views here.
 
@@ -415,3 +416,22 @@ with open(path,"r") as file:
             last_modified= datetime.now()
             )
              '''
+
+ #ecporting files 
+def export(request):
+    """client model, file responses"""
+    claim_resource = ClaimResource()
+    dataset = claim_resource.export()
+    response = HttpResponse(dataset.csv, content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="insured-details.csv"'
+    response = HttpResponse(dataset.json, content_type='application/json')
+    response['Content-Disposition'] = 'attachment; filename="insured-details.json"'
+    response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="persons.xls"'
+    return response
+
+
+#serializing the model client file model
+def claimsfileapi(request):
+    data = serializers.serialize("json", ClaimRecordsFiles.objects.all())
+    return render(request,"test.html",{"data":data})
