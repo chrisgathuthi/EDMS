@@ -18,7 +18,7 @@ from django.urls import path,include
 from invescofiles import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls,name="master"),
     path('', include('invescofiles.urls', namespace='invescofiles'))
 ]
 admin.site.site_header = 'Invesco Admin'                    # default: "Django Administration"

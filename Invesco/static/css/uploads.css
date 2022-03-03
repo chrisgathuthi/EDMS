@@ -39,16 +39,16 @@ thead{
 .wrapper{
     height: 40px;
     width: 100%;
-    background-color: black;
+    background-color: #2858a6;
     color: white;
     display: flex;
 }
 nav{
     display: flex;
     position: relative;
-    right: -1070px;
-    margin-right: 50px;
-
+    width: 100%;
+    justify-content: space-between;
+    margin-right: 40px;
     
 }
 .wrapper nav ul{
@@ -68,6 +68,9 @@ nav{
 
 }
 .wrapper nav ul li a:hover{
+    color: #e61e4c;
+}
+.wrapper nav ul li a:active{
     color: #e61e4c;
 }
 .button-22 {

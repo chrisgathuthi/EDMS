@@ -14,7 +14,7 @@
     left: 0;
     height: 100%;
     width: 260px;
-    background: #0b4323;
+    background: #2858a6;
     z-index: 100;
     transition: all 0.5s ease;
 }
@@ -74,7 +74,7 @@
 }
 
 .sidebar .nav-links li:hover {
-    background: #1d1b31;
+    background: #2858a6;
 }
 
 .sidebar .nav-links li .iocn-link {
@@ -127,7 +127,7 @@
 .sidebar .nav-links li .sub-menu {
     padding: 6px 6px 14px 80px;
     margin-top: -10px;
-    background: #0b4323;
+    background: #2858a6;
     display: none;
 }
 
@@ -222,7 +222,7 @@
     object-fit: cover;
     border-radius: 16px;
     margin: 0 14px 0 12px;
-    background: #1d1b31;
+    background: #2858a6;
     transition: all 0.5s ease;
 }
 

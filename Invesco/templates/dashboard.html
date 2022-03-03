@@ -246,14 +246,13 @@
 
   <br>
   <br>
-  <p>Files</p>
+  <p>Documents</p>
   <section class="table">
     <table class="table table-hover table-bordered">
         <thead>
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
-              <th scope="col">Description</th>
               <th scope="col">Download</th>
             </tr>
           </thead>
@@ -262,8 +261,7 @@
             {% for relatedclaimrecordsfile in relatedclaimrecordsfiles %}
             <tr>
               <td>{{forloop.counter}}</td>
-              <td>{{relatedclaimrecordsfile.title}}</td>
-              <td>{{relatedclaimrecordsfile.description}}</td>
+              <td>{{relatedclaimrecordsfile.claim_no}}</td>
             <td><a href="{{relatedclaimrecordsfile.file.url}}"><i class="fa fa-download fa-lg"></i></a></td>
             </tr>
             {% endfor %}

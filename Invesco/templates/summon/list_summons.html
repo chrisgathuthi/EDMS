@@ -12,10 +12,158 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'images/site.webmanifest' %}">
+    <link rel="stylesheet" href="{% static 'css/library.css' %}">
     <link rel="stylesheet" href="{% static 'css/summons.css' %}">
     <title>Summons Records</title>
 </head>
 <body>  
+  <section class="navigation">
+    <div class="sidebar close" id="sidebar">
+        <div class="logo-details close">
+              <img src="{% static 'images/logo.jpg' %}" width="78px">
+        </div>
+        <ul class="nav-links">
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                       <i class="fas fa-eye fa-lg"></i>
+                        <span class="link_name">SEARCH</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a href="{% url 'invescofiles:index' %}">VIEW SPECIFIC RECORD</a></li>
+                </ul>
+            </li>
+
+            .....
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                       <i class="fas fa-book-reader"></i>
+                        <span class="link_name">HEARING</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">HEARING</a></li>
+                    <li><a href="{% url 'invescofiles:hearing-list' %}">HEARING Records</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class="fas fa-gavel"></i>
+
+                        <span class="link_name">JUDGEMENT</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">JUDGEMENT</a></li>
+                    <li><a href="{% url 'invescofiles:judgement-list' %}">JUDGEMENT RECORDS</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                         <i class="fa fa-balance-scale" aria-hidden="true"></i>
+                        <span class="link_name">OUT OF COURT</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">OUT OF COURT</a></li>
+                    <li><a href="{% url 'invescofiles:outofcourt-list' %}">OUT OF COURT RECORDS</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                         <i class="fas fa-file"></i>
+
+                        <span class="link_name">SUMMON</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">SUMMON</a></li>
+                    <li><a href="{% url 'invescofiles:list-summons' %}">SUMMON RECORDS</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                         <i class="fas fa-landmark"></i>
+
+                        <span class="link_name">STATUTORY NOTICE</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">STATUTORY NOTICE</a></li>
+                    <li><a href="{% url 'invescofiles:statutory-list' %}">STATUTORY NOTICE</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                         <i class="fas fa-paperclip"></i>
+
+                        <span class="link_name">WARRANTS</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">WARRANTS</a></li>
+                    <li><a href="{% url 'invescofiles:warrant-list' %}">WARRANTS</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                        <span class="link_name">UPLOADS</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">UPLOADS</a></li>
+                    <li><a href="{% url 'invescofiles:upload-list' %}">UPLOADED FILES</a></li>
+                </ul>
+            </li>
+
+             <li>
+                <div class="iocn-link">
+                    <a href="#">
+                      <i class='bx bxs-notepad'></i>
+
+                        <span class="link_name">WARRANTS</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">WARRANTS</a></li>
+                    <li><a href="{% url 'invescofiles:warrant-list' %}">WARRANTS</a></li>
+                </ul>
+            </li>
+
+             <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bx-book-bookmark'></i>
+                        <span class="link_name">STATUTORY</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">STATUTORY</a></li>
+                    <li><a href="{% url 'invescofiles:statutory-list' %}">STATUTORY </a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+  
   <div class="row" style="background-color: #F7F8FA;">
     <button class="button-22" role="button"><a href="{% url 'invescofiles:library' %}">Back</a></button>
   </div>
@@ -67,7 +215,7 @@
           <th scope="col">T.P Advocate:</th>
           <th scope="col">Panel Advocate:</th>
           <th scope="col">Reserve Amount:</th>
-          <th scope="col">Instruct:</th>
+
           <th scope="col">Remarks:</th>
         </tr>
     </thead>
@@ -83,7 +231,7 @@
           <td>{{summon.tp_adv }}</td>
           <td>{{summon.panel_adv }}</td>
           <td>{{summon.reserve_amount}}</td>
-          <td>{{summon.instruct }}</td>
+
           <td>{{summon.remarks}}</td>
           {% comment  %}
           <td>
@@ -114,6 +262,23 @@
           });
         });
     </script>
+    <script>
+      let arrow = document.querySelectorAll(".arrow");
+      for (var i = 0; i < arrow.length; i++) {
+          arrow[i].addEventListener("click", (e) => {
+              let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
+              arrowParent.classList.toggle("showMenu");
+          });
+      }
+
+      let sidebar = document.querySelector(".sidebar");
+      let sidebarBtn = document.querySelector(".bx-menu");
+      console.log(sidebarBtn);
+      sidebarBtn.addEventListener("click", () => {
+          sidebar.classList.toggle("close");
+      });
+
+  </script>
   
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>

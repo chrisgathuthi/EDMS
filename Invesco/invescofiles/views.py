@@ -433,5 +433,5 @@ def export(request):
 
 #serializing the model client file model
 def claimsfileapi(request):
-    data = serializers.serialize("json", ClaimRecordsFiles.objects.all())
+    data= json.dumps(list(ClaimRecordsFiles.objects.values()))
     return render(request,"test.html",{"data":data})
